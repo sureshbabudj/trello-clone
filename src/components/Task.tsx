@@ -10,6 +10,7 @@ import { ContextType, Task as TaskType } from "../types";
 import Actions from "./Actions";
 import InlineInputEdit from "./InlineInputEdit";
 import Modal from "./Modal";
+import TaskDetails from "./TaskDetails";
 
 interface Props {
   task: TaskType;
@@ -89,7 +90,7 @@ function Task({ task }: Props): ReactElement {
         open={modalOpen}
         closeModal={() => setModalOpen(false)}
       >
-        <div>{JSON.stringify(task)}</div>
+        <TaskDetails task={task} />
       </Modal>
     </li>
   );

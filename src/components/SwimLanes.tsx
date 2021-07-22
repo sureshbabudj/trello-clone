@@ -38,6 +38,7 @@ export default function SwimLanes({ board }: Props): ReactElement {
 
   return (
     <>
+      {/*Lists container */}
       <section className="lists-container">
         {swimlanes.map((swimlane) => (
           <Swimlane key={swimlane.id} swimlane={swimlane} />
@@ -61,6 +62,7 @@ export default function SwimLanes({ board }: Props): ReactElement {
           </div>
         )}
       </section>
+      {/* End of lists container */}
     </>
   );
 }

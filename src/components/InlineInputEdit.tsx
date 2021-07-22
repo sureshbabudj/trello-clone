@@ -91,10 +91,11 @@ export default function InlineInputEdit({
                 rows={4}
                 onChange={handleInputChange}
                 ref={textInput}
+                className={`${err ? "error" : ""}`}
               ></textarea>
               <button
                 type="submit"
-                className="submit-btn button button-small button-secondary"
+                className="submit-btn button button-small button-secondary button-secondary-outlined"
               >
                 Submit <i className="fas fa-check-circle"></i>
               </button>

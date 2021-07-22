@@ -302,9 +302,15 @@ td.text-right {
         border: 0 none;
         height: 100%;
         resize: none;
+        &.error {
+          border-bottom: 0.1rem solid red;
+        }
       }
       .submit-btn {
         float: right;
+        position: absolute;
+        left: 0;
+        bottom: -3rem;
       }
       &::after {
         content: "";
@@ -399,7 +405,7 @@ td.text-right {
       align-content: center;
       justify-content: space-between;
       align-items: center;
-      .inline-input-wrap {
+      > .inline-input-wrap {
         flex-grow: 1;
         background-color: transparent;
         border: 0 none;
@@ -422,6 +428,60 @@ td.text-right {
     .add-card-btn,
     .add-flow-wrap {
       margin-top: 2rem;
+    }
+  }
+}
+
+// task details
+.task-details {
+  display: flex;
+  h3.heading {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    > i {
+      margin-right: 0.5rem;
+    }
+    > .title {
+      font-size: 1.2rem;
+      flex-grow: 1;
+      .inline-input-wrap {
+        border: 0 none;
+        form {
+          background-color: $lightBgColor1;
+        }
+      }
+    }
+  }
+  .field {
+    margin-bottom: 1rem;
+    .label {
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+  }
+  .task-sidebar {
+    padding: 3rem 1rem;
+  }
+  .task-main-bar {
+    flex: 1 0 70%;
+    > .field .inline-input-wrap {
+      width: 100% !important;
+      &.text-area {
+        height: fit-content;
+        margin: 1rem 0 4rem 0;
+        padding: 0;
+        background: transparent;
+        > form {
+          .submit-btn {
+            margin-bottom: 0;
+            position: absolute;
+            left: 0;
+            bottom: -3.25rem;
+          }
+        }
+      }
     }
   }
 }

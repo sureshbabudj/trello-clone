@@ -19,6 +19,7 @@ export default function Boards(props: any): ReactElement {
         createdAt: new Date().toISOString()
       }
     });
+    setShowAddBoard(false);
   }
 
   function updateBoard(board: Board) {
@@ -49,7 +50,7 @@ export default function Boards(props: any): ReactElement {
   }
   return (
     <div className="boards">
-      <table className="boards-list" width="100%">
+      <table className="boards-list table-fill" width="100%">
         <thead>
           <tr>
             <th>Name</th>
@@ -61,7 +62,7 @@ export default function Boards(props: any): ReactElement {
           {state.boards.map((board) => (
             <tr key={board.id}>
               <td width={"90%"}>{board.name}</td>
-              <td>
+              <td className="text-center ">
                 {board.isFavorite ? (
                   <i
                     className="fas fa-heart fav"
@@ -74,7 +75,7 @@ export default function Boards(props: any): ReactElement {
                   ></i>
                 )}
               </td>
-              <td>
+              <td className="text-center ">
                 <Actions
                   items={actions}
                   onSelected={(e) => handleAction(e, board)}
@@ -95,10 +96,10 @@ export default function Boards(props: any): ReactElement {
                 <div className="add-flow-wrap">
                   <InlineInputEdit emit={(e) => addBoard(e)} />
                   <button
-                    className="button button-small button-secondary"
+                    className="button button-small button-secondary button-secondary-outlined"
                     onClick={() => setShowAddBoard(false)}
                   >
-                    <i className="fas fa-ban"></i>
+                    <i className="fas fa-times"></i>
                   </button>
                 </div>
               )}

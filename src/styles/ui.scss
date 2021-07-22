@@ -24,6 +24,7 @@
   border-radius: 0.4rem;
   border-style: solid;
   border-width: 0.1rem;
+  color: #fff;
 }
 
 .button:focus,
@@ -49,28 +50,140 @@
 }
 
 .button-primary {
-  border-color: #9c27b0;
-  background-color: #9c27b0;
+  border-color: $primaryColor;
+  background-color: $primaryColor;
 }
 
 .button-primary-outlined {
   background-color: #fff;
-  color: #9c27b0;
-  border-color: #9c27b0;
+  color: $primaryColor;
+  border-color: $primaryColor;
 }
 
 .button-secondary {
-  border-color: #4caf50;
-  background-color: #4caf50;
+  border-color: $secondaryColor;
+  background-color: $secondaryColor;
 }
 
 .button-secondary-outlined {
   background-color: #fff;
-  color: #4caf50;
-  border-color: #4caf50;
+  color: $secondaryColor;
+  border-color: $secondaryColor;
+}
+// end of button
+
+/*** Table Styles **/
+.table-fill {
+  background: white;
+  border-radius: 0.3rem;
+  border-collapse: collapse;
+  margin: auto;
+  padding: 0.5rem;
+  width: 100%;
+  box-shadow: 0 5rem 1rem rgba(0, 0, 0, 0.1);
+  animation: float 5s infinite;
 }
 
-// end of button
+th {
+  color: #d5dde5;
+  background: $primaryColor;
+  border-bottom: 0.4rem solid #9ea7af;
+  border-right: 0.1rem solid #343a45;
+  font-size: 1.6rem;
+  font-weight: 100;
+  padding: 1.8rem;
+  text-align: left;
+  text-shadow: 0 0.1rem 0.1rem rgba(0, 0, 0, 0.1);
+  vertical-align: middle;
+}
+
+th:first-child {
+  border-top-left-radius: 0.3rem;
+}
+
+th:last-child {
+  border-top-right-radius: 0.3rem;
+  border-right: none;
+}
+
+tr {
+  border-top: 0.1rem solid #c1c3d1;
+  border-bottom: 0.1rem solid #c1c3d1;
+  color: #666b85;
+  font-size: 1.6rem;
+  font-weight: normal;
+  text-shadow: 0 0.1rem 0.1rem rgba(256, 256, 256, 0.1);
+}
+
+tr:hover td {
+  background: #4e5066;
+  color: #ffffff;
+  border-top: 0.1rem solid #22262e;
+}
+
+tr:first-child {
+  border-top: none;
+}
+
+tr:last-child {
+  border-bottom: none;
+}
+
+tr:nth-child(odd) td {
+  background: #ebebeb;
+}
+
+tr:nth-child(odd):hover td {
+  background: #4e5066;
+}
+
+tr:last-child td:first-child {
+  border-bottom-left-radius: 0.3rem;
+}
+
+tr:last-child td:last-child {
+  border-bottom-right-radius: 0.3rem;
+}
+
+td {
+  background: #ffffff;
+  padding: 1rem;
+  text-align: left;
+  vertical-align: middle;
+  font-weight: 300;
+  font-size: 1.6rem;
+  text-shadow: -0.1rem -0.1rem 0.1rem rgba(0, 0, 0, 0.1);
+  border-right: 0.1rem solid #c1c3d1;
+}
+
+td:last-child {
+  border-right: 0;
+}
+
+th.text-left {
+  text-align: left;
+}
+
+th.text-center {
+  text-align: center;
+}
+
+th.text-right {
+  text-align: right;
+}
+
+td.text-left {
+  text-align: left;
+}
+
+td.text-center {
+  text-align: center;
+}
+
+td.text-right {
+  text-align: right;
+}
+/*** Table Styles end **/
 
 // Popup
 .overlay {
@@ -91,25 +204,25 @@
   }
   .popup {
     margin: auto;
-    padding: 2rem;
+    padding: 3rem;
     background: $lightBgColor;
     border-radius: $smallBorderRadius;
     width: 65%;
     position: relative;
     transition: all 3s ease-in-out;
-    min-height: 14rem;
+    min-height: 30rem;
     h2 {
-      margin-bottom: 1rem;
-      font-size: 1.5rem;
+      margin-bottom: 1.6rem;
+      font-size: 2rem;
       margin-top: 0;
       color: $textColor;
     }
     .close {
       position: absolute;
-      top: 1rem;
-      right: 1rem;
+      top: 1.6rem;
+      right: 1.6rem;
       transition: all 200ms;
-      font-size: 2rem;
+      font-size: 3rem;
       font-weight: bold;
       text-decoration: none;
       color: $textColor;
@@ -123,5 +236,156 @@
     }
   }
 }
-
 // end of Popup
+
+// Inline Edit compoenht
+.inline-input-wrap {
+  font-size: 1em;
+  border: 0.1rem solid $lightBorderColor;
+  display: block;
+  // min-width: 12rem;
+  min-height: 1.5em;
+  padding: 0.25em;
+  margin: 0;
+  line-height: 1.5em;
+  background-color: $lightBgColor;
+  border-radius: $smallBorderRadius;
+  cursor: pointer;
+  .inline-input-value {
+    height: 1.5em;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  form {
+    margin: 0;
+    height: 0;
+    display: block;
+    position: relative;
+    padding-right: 1.5em;
+    height: 100%;
+    background-color: #ffffff;
+    input {
+      border: 0 none;
+      line-height: 1.5em;
+      width: 100%;
+      outline: none;
+      background-color: transparent;
+    }
+    .inputErrorIcon {
+      color: red;
+      position: absolute;
+      right: 0.25rem;
+      top: 0.25rem;
+    }
+  }
+  &.text-area {
+    border: 0 none;
+    form {
+      height: auto;
+      textarea {
+        overflow: auto;
+        outline: none;
+        width: 100%;
+        border: 0 none;
+        height: 100%;
+        resize: none;
+      }
+      .submit-btn {
+        float: right;
+      }
+      &::after {
+        content: "";
+        clear: both;
+        display: block;
+        height: 0.25rem;
+      }
+    }
+    .inline-input-value {
+      white-space: normal;
+      overflow: auto;
+      height: auto;
+    }
+  }
+}
+// end of inline-edit component
+
+// boards
+.boards {
+  font-size: 12px;
+  table.boards-list tbody tr:last-child {
+    border-top: 0.1rem solid $lightBorderColor;
+  }
+  .fav {
+    color: red;
+  }
+  .inline-input-wrap {
+  }
+}
+
+.board-info-bar {
+  .board-title > h2.board-name {
+    > .inline-input-wrap {
+      background: transparent;
+      border: 0 none;
+      form {
+        background-color: rgb(255 255 255 / 70%);
+        > input {
+          font-size: 1em;
+        }
+      }
+    }
+  }
+}
+
+// add Flow
+.add-flow-wrap {
+  display: flex;
+  align-items: baseline;
+  flex-direction: row;
+  .inline-input-wrap {
+    flex-grow: 1;
+  }
+  .pure-button {
+    margin-left: 0.5rem;
+  }
+}
+
+// Action
+.actions {
+  position: relative;
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+  i {
+    padding: 1rem;
+  }
+  i.opened {
+    box-shadow: 0.1rem 0.1rem 0.1rem 0px $shadowColor;
+    background-color: $lightBgColor1;
+  }
+  .overflow {
+    background-color: $lightBgColor1;
+    position: absolute;
+    min-width: 12rem;
+    max-width: 20rem;
+    min-height: 5rem;
+    box-shadow: 0.1rem 0.1rem 0.1rem 0px $shadowColor;
+    border-radius: $smallBorderRadius;
+    padding: 1rem;
+    right: 0;
+    border: 0;
+    z-index: 999;
+    ul {
+      list-style: none;
+      li {
+        padding: 0.5rem 0.75rem;
+        cursor: pointer;
+        &:hover {
+          background-color: $primaryColor;
+          color: $darkBgTextColor;
+        }
+      }
+    }
+  }
+}

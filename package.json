@@ -4,14 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "npm run clean && parcel ./public/index.html --out-dir _dev",
+    "dev": "npm run clean && parcel ./public/index.html --out-dir _dev --port 3000",
     "clean": "rimraf _dev && rimraf .cache"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "parcel-bundler": "^1.12.5",
-    "rimraf": "^3.0.2"
+    "rimraf": "^3.0.2",
+    "typescript": "^4.3.5"
   },
   "dependencies": {
     "react": "^17.0.2",

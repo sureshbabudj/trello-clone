@@ -3,6 +3,7 @@ import { formatDate } from "../utils/utils";
 import { Context } from "../store/Store";
 import { ContextType, Task, Swimlane } from "../types";
 import InlineInputEdit from "./InlineInputEdit";
+import Checklists from "./Checklists";
 
 interface Props {
   task: Task;
@@ -66,7 +67,7 @@ export default function TaskDetails({ task }: Props): ReactElement {
           <div className="label">
             <i className="fas fa-check-square"></i> Checklist:
           </div>
-          {/* Checklists  */}
+          <Checklists task={task} />
         </div>
       </div>
       <div className="task-sidebar">

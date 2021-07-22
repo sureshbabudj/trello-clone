@@ -1,0 +1,127 @@
+@import "./variables.scss";
+
+//button
+.button {
+  display: inline-block;
+  height: 4rem;
+  margin: 0 0.2rem 1.5rem;
+  padding: 0 2rem;
+  width: auto;
+  background: none;
+  overflow: visible;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  transition: all 0.1s ease-out;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: inherit;
+  line-height: 4rem;
+  letter-spacing: 0.1rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  white-space: nowrap;
+  border-radius: 0.4rem;
+  border-style: solid;
+  border-width: 0.1rem;
+}
+
+.button:focus,
+.button:hover {
+  opacity: 0.85;
+  cursor: pointer;
+  transform: scale(1.025);
+}
+
+.button-round {
+  border-radius: 2.4rem;
+}
+
+.button-shadow {
+  box-shadow: 0 0.2rem 0.4rem #bdbdbd;
+}
+
+.button-small {
+  height: 3rem;
+  line-height: 3rem;
+  padding: 0 1.5rem;
+  font-size: 1.2rem;
+}
+
+.button-primary {
+  border-color: #9c27b0;
+  background-color: #9c27b0;
+}
+
+.button-primary-outlined {
+  background-color: #fff;
+  color: #9c27b0;
+  border-color: #9c27b0;
+}
+
+.button-secondary {
+  border-color: #4caf50;
+  background-color: #4caf50;
+}
+
+.button-secondary-outlined {
+  background-color: #fff;
+  color: #4caf50;
+  border-color: #4caf50;
+}
+
+// end of button
+
+// Popup
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  z-index: 9999;
+  display: none;
+  &.popup-open {
+    visibility: visible;
+    opacity: 1;
+    display: flex;
+    transition: opacity 500ms;
+  }
+  .popup {
+    margin: auto;
+    padding: 2rem;
+    background: $lightBgColor;
+    border-radius: $smallBorderRadius;
+    width: 65%;
+    position: relative;
+    transition: all 3s ease-in-out;
+    min-height: 14rem;
+    h2 {
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+      margin-top: 0;
+      color: $textColor;
+    }
+    .close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      transition: all 200ms;
+      font-size: 2rem;
+      font-weight: bold;
+      text-decoration: none;
+      color: $textColor;
+    }
+    .close:hover {
+      color: red;
+    }
+    .content {
+      max-height: 30%;
+      overflow: auto;
+    }
+  }
+}
+
+// end of Popup

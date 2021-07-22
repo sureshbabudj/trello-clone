@@ -1,10 +1,13 @@
 import React from "react";
 import { render } from "react-dom";
 import App from "./App";
+import { StoreContextProvider } from "./store/Store";
 
 const body = (
   <React.StrictMode>
-    <App />
+    <StoreContextProvider>
+      <App />
+    </StoreContextProvider>
   </React.StrictMode>
 );
 

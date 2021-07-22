@@ -26,7 +26,7 @@ $ yarn install
 
 ## Usage
 
-### Serving the app - will run in http://localhost
+### Serving the app - will run in http://localhost:3000
 
 ```sh
 $ npm run dev

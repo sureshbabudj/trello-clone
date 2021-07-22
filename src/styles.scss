@@ -326,7 +326,7 @@ Remove or comment-out the code block below to see how the browser will fall-back
 */
 
 @supports (display: grid) {
-  body {
+  #app {
     display: grid;
     grid-template-rows: 4rem 3rem auto;
     grid-row-gap: 0.8rem;

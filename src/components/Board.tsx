@@ -1,15 +1,16 @@
 import React, { ReactElement, useContext, useEffect, useState } from "react";
 import { getRandomId } from "../utils/utils";
 import { Context } from "../store/Store";
-import { Board, ContextType } from "../types";
+import { Board as BoardType, ContextType } from "../types";
 import InlineInputEdit from "./InlineInputEdit";
+import SwimLanes from "./SwimLanes";
 
-interface Props {}
-
-export default function Board({}: Props): ReactElement {
+export default function Board(): ReactElement {
   const { state, dispatch } = useContext<ContextType>(Context);
 
-  const [board, setBoard] = useState<undefined | Board>(selectCurrentBoard());
+  const [board, setBoard] = useState<undefined | BoardType>(
+    selectCurrentBoard()
+  );
 
   function updateOrAddBoard(val: string) {
     if (!val) {
@@ -36,7 +37,17 @@ export default function Board({}: Props): ReactElement {
     });
   }
 
-  function selectCurrentBoard(): Board | undefined {
+  function updateBoard(board: BoardType) {
+    dispatch({
+      type: "updateBoard",
+      data: {
+        ...board,
+        updatedAt: new Date().toISOString()
+      }
+    });
+  }
+
+  function selectCurrentBoard(): BoardType | undefined {
     const currentBoardId = state.app.currentBoard;
     let currentBoard;
     if (currentBoardId) {
@@ -54,7 +65,7 @@ export default function Board({}: Props): ReactElement {
     if (board) {
       setBoard(board);
     }
-  }, [state.app.currentBoard]);
+  }, [state.app.currentBoard, board]);
   return (
     <>
       {/*Board info bar */}
@@ -69,9 +80,23 @@ export default function Board({}: Props): ReactElement {
             </h2>
           </button>
 
-          <button className="star-btn btn" aria-label="Star Board">
-            <i className="far fa-star" aria-hidden="true"></i>
-          </button>
+          {board && (
+            <button
+              className="star-btn btn"
+              aria-label="Star Board"
+              onClick={() =>
+                updateBoard({
+                  ...board,
+                  isFavorite: board.isFavorite ? false : true
+                })
+              }
+            >
+              <i
+                className={`fa-star ${board.isFavorite ? "fas" : "fa"}`}
+                aria-hidden="true"
+              ></i>
+            </button>
+          )}
 
           <button className="personal-btn btn">Personal</button>
 
@@ -89,7 +114,10 @@ export default function Board({}: Props): ReactElement {
           Show Menu
         </button>
       </section>
+
       {/*End of board info bar */}
+
+      {board && <SwimLanes board={board} />}
     </>
   );
 }

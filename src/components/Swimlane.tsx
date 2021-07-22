@@ -95,7 +95,7 @@ export default function Swimlane({ swimlane }: Props): ReactElement {
 
   function drop(e: any) {
     e.preventDefault();
-    setClasses(["swimlane"]);
+    setClasses(["list"]);
     const draggable = parseInt(e.dataTransfer.getData("text/plain"));
     const target = parseInt(e.currentTarget.id.split("swimlane-")[1]);
     const type = e.dataTransfer.getData("type");

@@ -53,7 +53,7 @@ export default function SwimLanes({ board }: Props): ReactElement {
           <div className="add-flow-wrap">
             <InlineInputEdit emit={(e) => addSwimlane(e)} />
             <button
-              className="pure-button button-small pure-button-secondary"
+              className="button button-small button-secondary button-secondary-outlined"
               onClick={() => setShowAddSwimLane(false)}
             >
               <i className="fas fa-times"></i>

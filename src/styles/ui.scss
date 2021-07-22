@@ -272,12 +272,15 @@ td.text-right {
       width: 100%;
       outline: none;
       background-color: transparent;
+      &.error {
+        border-bottom: 0.1rem solid red;
+      }
     }
     .inputErrorIcon {
       color: red;
       position: absolute;
-      right: 0.25rem;
-      top: 0.25rem;
+      right: 0.5rem;
+      top: calc(50% - 0.5rem);
     }
   }
   &.text-area {
@@ -348,6 +351,18 @@ td.text-right {
     .inline-input-wrap {
       background: transparent;
       border: 0;
+      line-height: inherit;
+      min-height: auto;
+      form {
+        min-height: fit-content;
+        height: fit-content;
+        border-radius: $smallBorderRadius;
+        padding: 0.25rem 1rem;
+        input {
+          font-size: 1.4rem;
+          font-weight: bold;
+        }
+      }
     }
     > .actions {
       .overflow {
@@ -368,7 +383,7 @@ td.text-right {
   .inline-input-wrap {
     flex-grow: 1;
   }
-  .pure-button {
+  .button {
     margin-left: 0.5rem;
   }
 }

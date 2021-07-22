@@ -9,6 +9,7 @@ import { Context } from "../store/Store";
 import { ContextType, Swimlane } from "../types";
 import Actions from "./Actions";
 import InlineInputEdit from "./InlineInputEdit";
+import Tasks from "./Tasks";
 
 interface Props {
   swimlane: Swimlane;
@@ -142,24 +143,7 @@ export default function Swimlane({ swimlane }: Props): ReactElement {
           />
           <Actions items={actions} onSelected={(e) => handleAction(e)} />
         </h3>
-        <ul className="list-items">
-          <li>Complete mock-up for client website</li>
-          <li>Email mock-up to client for feedback</li>
-          <li>Update personal website header background image</li>
-          <li>Update personal website heading fonts</li>
-          <li>Add google map to personal website</li>
-          <li>Begin draft of CSS Grid article</li>
-          <li>Read new CSS-Tricks articles</li>
-          <li>Read new Smashing Magazine articles</li>
-          <li>Read other bookmarked articles</li>
-          <li>Look through portfolios to gather inspiration</li>
-          <li>Create something cool for CodePen</li>
-          <li>Post latest CodePen work on Twitter</li>
-          <li>Listen to new Syntax.fm episode</li>
-          <li>Listen to new CodePen Radio episode</li>
-        </ul>
-
-        <button className="add-card-btn btn">Add a card</button>
+        <Tasks swimlane={swimlane} />
       </div>
     </>
   );

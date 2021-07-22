@@ -183,6 +183,14 @@ td.text-center {
 td.text-right {
   text-align: right;
 }
+.add-board {
+  .button {
+    margin-bottom: 0;
+  }
+  &:hover {
+    background-color: none;
+  }
+}
 /*** Table Styles end **/
 
 // Popup
@@ -342,6 +350,7 @@ td.text-right {
 
 // list/Swimlane
 .list {
+  min-height: 20rem;
   > h3.list-title {
     display: flex;
     flex-direction: row;
@@ -373,6 +382,48 @@ td.text-right {
       }
     }
   }
+  .list-items {
+    > .add-flow-wrap {
+      margin: 0.5rem 0;
+      > .inline-input-wrap {
+        line-height: 1rem;
+        background-color: transparent;
+        height: fit-content;
+        min-height: auto;
+      }
+    }
+    > li.task {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-content: center;
+      justify-content: space-between;
+      align-items: center;
+      .inline-input-wrap {
+        flex-grow: 1;
+        background-color: transparent;
+        border: 0 none;
+        font-size: 1.5rem;
+        min-height: auto;
+        height: fit-content;
+        width: 10rem;
+        > form {
+          background-color: $lightBgColor1;
+          padding: 0.25rem 0.5rem;
+          input {
+            font-size: 1.4rem;
+          }
+        }
+        .inline-input-value {
+          padding: 0.25rem 0.5rem;
+        }
+      }
+    }
+    .add-card-btn,
+    .add-flow-wrap {
+      margin-top: 2rem;
+    }
+  }
 }
 
 // add Flow
@@ -385,6 +436,12 @@ td.text-right {
   }
   .button {
     margin-left: 0.5rem;
+    margin-bottom: 0;
+    .fa,
+    .fas {
+      font-size: 1.4rem;
+      line-height: 1.5rem;
+    }
   }
 }
 

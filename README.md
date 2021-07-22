@@ -3,7 +3,7 @@ Clone of Trello with react and parcel
 
 
 
-**BEFORE YOU INSTALL:** please read the [prerequisites](#prerequisites)
+**BEFORE YOU INSTALL:** please read the [prerequisites](https://parceljs.org/getting_started.html)
 
 Start with cloning this repo on your local machine:
 

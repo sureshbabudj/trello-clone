@@ -1,7 +1,9 @@
 # trello-clone
 Clone of Trello with react and parcel
 
+## View Site in action
 
+[Site](https://sureshbabudj.github.io/trello-clone/)
 
 **BEFORE YOU INSTALL:** please read the [prerequisites](https://parceljs.org/getting_started.html)
 

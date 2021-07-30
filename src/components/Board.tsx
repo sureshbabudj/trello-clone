@@ -74,6 +74,9 @@ export default function Board(): ReactElement {
           <button className="board-title btn">
             <h2 className="board-name">
               <InlineInputEdit
+                placeholder={
+                  !board ? "Enter New Board Name" : "update Board name"
+                }
                 emit={(e) => updateOrAddBoard(e)}
                 defaultValue={board?.name}
               />
